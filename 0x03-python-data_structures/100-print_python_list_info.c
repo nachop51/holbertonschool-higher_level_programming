@@ -1,6 +1,10 @@
 #include <Python.h>
 #include <listobject.h>
 
+/**
+ * print_python_list_info - Prints information about Python lists
+ * @p: Python Object
+ */
 void print_python_list_info(PyObject *p)
 {
 	PyListObject *obj = (PyListObject *)p;
