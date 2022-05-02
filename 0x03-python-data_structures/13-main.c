@@ -30,7 +30,7 @@ int main(void)
     add_nodeint_end(&head2, 972);
     add_nodeint_end(&head2, 50);
     add_nodeint_end(&head2, 982);
-    add_nodeint_end(&head2, 50);
+    add_nodeint_end(&head2, 501);
     add_nodeint_end(&head2, 972);
     add_nodeint_end(&head2, 17);
     add_nodeint_end(&head2, 1);
