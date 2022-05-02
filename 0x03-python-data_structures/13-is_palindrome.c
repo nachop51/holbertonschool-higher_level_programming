@@ -38,35 +38,6 @@ int is_palindrome(listint_t **head)
 	return (1);
 }
 
-/*
-
-listint_t *len, *end, *str;
-	int length = 0, tail = 0, lengthcopy;
-
-	if (!head)
-		return (1);
-	len = *head, str = *head;
-	while (len->next != NULL)
-		len = len->next, length++;
-	lengthcopy = length;
-	while (length > lengthcopy / 2)
-	{
-		end = *head, tail = 0;
-		while (tail < length)
-		{
-			end = end->next;
-			tail++;
-		}
-		if (str->n == end->n)
-			str = str->next;
-		else
-			return (0);
-		length--;
-	}
-	return (1);
-
-*/
-
 /**
  * listint_len -  function that returns the number of elements in a linked list
  * @h: list
