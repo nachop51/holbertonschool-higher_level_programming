@@ -10,25 +10,32 @@
 int is_palindrome(listint_t **head)
 {
 	listint_t *aux = *head;
-	int length = 0, *array = NULL, i = 0;
+	int length = 0, *array = NULL, i = 0, j = 0;
 
 	if (!head || !*head)
 		return (1);
 	length = listint_len(*head);
+	printf("Length:%d\n", length);
 	array = malloc(sizeof(int) * length);
 	if (!array)
 		return (-1);
-	while (aux != NULL)
+	while (i < length)
 	{
 		array[i] = aux->n;
-		printf("\n\nAUX[%d]:%d\n", i, aux->n);
 		aux = aux->next;
 		i++;
 	}
-	for (i = 0; i < length; i++)
+	j = length - 1;
+	for (i = 0; i < length / 2; i++)
 	{
-		printf("%d\n", array[i]);
+		if (array[i] != array[j])
+		{
+			free(array);
+			return (0);
+		}
+		j--;
 	}
+	free(array);
 	return (1);
 }
 

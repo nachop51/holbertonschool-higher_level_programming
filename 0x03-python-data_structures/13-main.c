@@ -33,7 +33,7 @@ int main(void)
     add_nodeint_end(&head2, 50);
     add_nodeint_end(&head2, 972);
     add_nodeint_end(&head2, 17);
-    add_nodeint_end(&head2, 0);
+    add_nodeint_end(&head2, 1);
     print_listint(head2);
     if (is_palindrome(&head) == 1)
         printf("Linked list is a palindrome\n");
