@@ -51,3 +51,32 @@ size_t listint_len(const listint_t *h)
 		h = h->next;
 	return (i);
 }
+
+/*
+
+listint_t *len, *end, *str;
+	int length = 0, tail = 0, lengthcopy;
+
+	if (!head)
+		return (1);
+	len = *head, str = *head;
+	while (len->next != NULL)
+		len = len->next, length++;
+	lengthcopy = length;
+	while (length > lengthcopy / 2)
+	{
+		end = *head, tail = 0;
+		while (tail < length)
+		{
+			end = end->next;
+			tail++;
+		}
+		if (str->n == end->n)
+			str = str->next;
+		else
+			return (0);
+		length--;
+	}
+	return (1);
+
+*/
