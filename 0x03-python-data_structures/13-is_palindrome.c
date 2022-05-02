@@ -15,7 +15,6 @@ int is_palindrome(listint_t **head)
 	if (!head || !*head)
 		return (1);
 	length = listint_len(*head);
-	printf("Length:%d\n", length);
 	array = malloc(sizeof(int) * length);
 	if (!array)
 		return (-1);
