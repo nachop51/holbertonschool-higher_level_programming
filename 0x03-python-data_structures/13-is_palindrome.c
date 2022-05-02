@@ -9,7 +9,32 @@
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *len, *end, *str;
+	listint_t *aux = *head;
+	int length = 0, *array = NULL, i = 0;
+
+	if (!head || !*head)
+		return (1);
+	length = listint_len(*head);
+	array = malloc(sizeof(int) * length);
+	if (!array)
+		return (-1);
+	while (aux != NULL)
+	{
+		array[i] = aux->n;
+		printf("\n\nAUX[%d]:%d\n", i, aux->n);
+		aux = aux->next;
+		i++;
+	}
+	for (i = 0; i < length; i++)
+	{
+		printf("%d\n", array[i]);
+	}
+	return (1);
+}
+
+/*
+
+listint_t *len, *end, *str;
 	int length = 0, tail = 0, lengthcopy;
 
 	if (!head)
@@ -33,4 +58,20 @@ int is_palindrome(listint_t **head)
 		length--;
 	}
 	return (1);
+
+*/
+
+/**
+ * listint_len -  function that returns the number of elements in a linked list
+ * @h: list
+ *
+ * Return: Number of nodes
+ */
+size_t listint_len(const listint_t *h)
+{
+	int i = 0;
+
+	for (i = 0; h != NULL; i++)
+		h = h->next;
+	return (i);
 }
