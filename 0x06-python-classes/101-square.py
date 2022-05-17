@@ -66,12 +66,3 @@ class Square:
             for i in range(self.size):
                 string += " " * position[0] + "#" * self.size + "\n"
         return string[:-1]
-
-
-my_square = Square(5, (0, 0))
-print(my_square)
-
-print("--")
-
-my_square = Square(5, (4, 1))
-print(my_square)
