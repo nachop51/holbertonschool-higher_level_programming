@@ -45,6 +45,15 @@ class SinglyLinkedList:
             new.next_node = node.next_node
             node.next_node = new
 
+    def __str__(self):
+        node = self.__head
+        string = ""
+        while node:
+            string += str(node.data) + "\n"
+            node = node.next_node
+        string = string[:-1]
+        return string
+
 
 sll = SinglyLinkedList()
 sll.sorted_insert(2)
