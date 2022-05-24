@@ -33,6 +33,11 @@ class TestMaxInteger(unittest.TestCase):
         result = max_integer([])
         self.assertEqual(result, None)
 
+    def test_unique(self):
+        """Test only one item"""
+        result = max_integer([2])
+        self.assertEqual(result, 2)
+
 
 if __name__ == '__main__':
     unittest.main()

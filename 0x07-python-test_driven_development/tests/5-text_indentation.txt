@@ -9,6 +9,10 @@ This is an example text file in reStructuredText format.  First import
 
     >>> text_indentation = __import__('5-text_indentation').text_indentation
 
+    >>> text_indentation(98)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
     >>> text_indentation("""Lorem ipsum dolor sit amet, consectetur adipiscing elit. \
     ... Quonam modo? Utrum igitur tibi litteram videor an totas paginas commovere? \
     ... Non autem hoc: igitur ne illud quidem. Fortasse id optimum, sed ubi illud: \
@@ -46,3 +50,9 @@ This is an example text file in reStructuredText format.  First import
     Quae animi affectio suum cuique tribuens atque hanc, quam dico.
     <BLANKLINE>
     Utinam quidem dicerent alium alio beatiorem! Iam ruinas videres
+
+    >>> text_indentation("")
+    <BLANKLINE>
+    >>> text_indentation()
+    Traceback (most recent call last):
+    TypeError: text_indentation() missing 1 required positional argument: 'text'

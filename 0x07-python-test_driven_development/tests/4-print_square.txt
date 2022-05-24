@@ -23,6 +23,10 @@ This is an example text file in reStructuredText format.  First import
     #####
     #####
 
+    >>> print_square(9.8)
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
     >>> print_square(-1)
     Traceback (most recent call last):
     ValueError: size must be >= 0
@@ -30,6 +34,10 @@ This is an example text file in reStructuredText format.  First import
     >>> print_square(None)
     Traceback (most recent call last):
     TypeError: size must be an integer
+
+    >>> print_square(-402)
+    Traceback (most recent call last):
+    ValueError: size must be >= 0
 
     >>> print_square('a')
     Traceback (most recent call last):
