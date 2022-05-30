@@ -46,3 +46,8 @@ This is an example text file in reStructuredText format. First import
 
     >>> my_list
     [6, 5, 4]
+
+    >>> new_l = MyList()
+
+    >>> new_l.print_sorted()
+    []
