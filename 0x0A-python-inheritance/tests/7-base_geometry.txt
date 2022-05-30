@@ -42,3 +42,19 @@ This is an example text file in reStructuredText format. First import
     >>> bg.integer_validator("width", False)
     Traceback (most recent call last):
     TypeError: width must be an integer
+
+    >>> bg.integer_validator("height", None)
+    Traceback (most recent call last):
+    TypeError: height must be an integer
+
+    >>> bg.integer_validator("height", (1,))
+    Traceback (most recent call last):
+    TypeError: height must be an integer
+
+    >>> bg.integer_validator("size", 10.5)
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+    >>> bg.integer_validator("width", [5])
+    Traceback (most recent call last):
+    TypeError: width must be an integer
