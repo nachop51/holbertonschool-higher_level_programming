@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 '''
-    Module that returns the list of 
-    available attributes and methods 
+    Module that returns the list of
+    available attributes and methods
     of an object
 '''
 
