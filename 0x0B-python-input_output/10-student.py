@@ -21,7 +21,7 @@ class Student:
         if attrs and isinstance(attrs, list):
             for attr in attrs:
                 if not isinstance(attr, str):
-                    return self.__dict__
+                    return self.__dict__.copy()
             dict_copy = dict.copy()
             for attr in dict:
                 if attr not in attrs:
