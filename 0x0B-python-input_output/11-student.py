@@ -30,5 +30,6 @@ class Student:
         return dict
 
     def reload_from_json(self, json):
+        """ Reload from json """
         for attr in json:
             self.__dict__.update({attr: json[attr]})

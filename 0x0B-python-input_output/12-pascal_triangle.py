@@ -1,5 +1,9 @@
 #!/usr/bin/python3
+""" Module pascal triangle """
+
+
 def pascal_triangle(n):
+    ''' Returns a list of lists of integers of the pascal triangle '''
     if n <= 0:
         return []
     pascal = []

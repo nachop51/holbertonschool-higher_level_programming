@@ -10,7 +10,7 @@ obj = [arg for arg in sys.argv if arg != sys.argv[0]]
 
 try:
     data = load_from_json_file(filename)
-except:
+except Exception:
     save_to_json_file(obj, filename)
 else:
     for o in obj:
