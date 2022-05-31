@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 import json
-""" To json module """
+""" To json string module """
 
 
 def to_json_string(my_obj):
