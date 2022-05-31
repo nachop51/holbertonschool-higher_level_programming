@@ -18,7 +18,7 @@ class Student:
                 if not isinstance(attr, str):
                     return self.__dict__.copy()
             a_dict = dict()
-            for attr in self.__dict__:
+            for attr in attrs:
                 if attr in self.__dict__:
                     a_dict.update({attr: self.__dict__[attr]})
             return a_dict
