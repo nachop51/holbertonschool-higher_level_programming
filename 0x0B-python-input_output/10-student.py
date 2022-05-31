@@ -22,9 +22,9 @@ class Student:
             for attr in attrs:
                 if not isinstance(attr, str):
                     return self.__dict__.copy()
-            dict_copy = dict.copy()
+            dict_copy = {}
             for attr in dict:
-                if attr not in attrs:
-                    dict_copy.pop(attr)
-            dict = dict_copy
-        return dict
+                if attr in self.__dict__:
+                    dict_copy.update({attr: self.__dict__[attr]})
+            return dict_copy
+        return self.__dict__.copy()
