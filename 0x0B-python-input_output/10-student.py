@@ -19,6 +19,9 @@ class Student:
             "age": self.age,
         }
         if attrs and isinstance(attrs, list):
+            for attr in attrs:
+                if not isinstance(attr, str):
+                    return self.__dict__
             dict_copy = dict.copy()
             for attr in dict:
                 if attr not in attrs:
