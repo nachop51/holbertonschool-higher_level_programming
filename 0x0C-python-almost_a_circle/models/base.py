@@ -45,6 +45,7 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
+        ''' Creates an instance with all attributes already set '''
         if cls.__name__ == "Square":
             dummy = cls(1)
         elif cls.__name__ == "Rectangle":
@@ -64,6 +65,7 @@ class Base:
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
+        ''' Saves a list of instances to a csv file '''
         if list_objs:
             filename = cls.__name__ + '.csv'
             with open(filename, "w") as file:
@@ -78,6 +80,7 @@ class Base:
 
     @classmethod
     def load_from_file_csv(cls):
+        ''' Loads and returns a list of instances from a csv file '''
         filename = cls.__name__ + '.csv'
         if exists(filename):
             if 'Rectangle' in filename:
