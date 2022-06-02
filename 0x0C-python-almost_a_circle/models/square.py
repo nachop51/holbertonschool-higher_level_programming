@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-''' Square module, creates a square model '''
+""" Square module, creates a square model """
 from models.rectangle import Rectangle
 
 
@@ -49,10 +49,10 @@ class Square(Rectangle):
                         self.y = value
 
     def to_dictionary(self):
-        ''' Returns a dictionary representation of the square '''
+        """ Returns a dictionary representation of the square """
         return {
-            'id': self.id,
-            'size': self.size,
-            'x': self.x,
-            'y': self.y,
+            "id": self.id,
+            "size": self.size,
+            "x": self.x,
+            "y": self.y,
         }

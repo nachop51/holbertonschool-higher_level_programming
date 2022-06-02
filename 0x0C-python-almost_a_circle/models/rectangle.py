@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-''' Rectangle module, creates a rectangle model '''
+""" Rectangle module, creates a rectangle model """
 from models.base import Base
 
 
@@ -115,11 +115,11 @@ class Rectangle(Base):
                         self.y = value
 
     def to_dictionary(self):
-        ''' Returns a dictionary representation of the rectangle '''
+        """ Returns a dictionary representation of the rectangle """
         return {
-            'id': self.id,
-            'width': self.width,
-            'height': self.height,
-            'x': self.x,
-            'y': self.y
+            "id": self.id,
+            "width": self.width,
+            "height": self.height,
+            "x": self.x,
+            "y": self.y
         }
