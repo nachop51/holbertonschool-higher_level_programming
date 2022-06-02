@@ -130,7 +130,6 @@ class Base:
             t.shape("arrow")
             t.right(90)
             t.forward(obj.height)
-            t.shape("classic")
             t.right(90)
 
         screen.exitonclick()
