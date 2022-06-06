@@ -161,6 +161,32 @@ class BaseTest(unittest.TestCase):
         s2 = Square.create(**s1_dict)
         self.assertEqual(s1.__str__(), '[Square] (1) 2/3 - 1')
 
+    def test_19_1(self):
+        self.set_zero()
+        r1 = Rectangle(1, 2, 3)
+        r2 = Rectangle(2, 4)
+        list_rectangles = [r1, r2]
+        Rectangle.save_to_file_csv(list_rectangles)
+        if os.path.exists('Rectangle.csv'):
+            list_rectangles_output = Rectangle.load_from_file_csv()
+            for i, rect in enumerate(list_rectangles_output):
+                self.assertTrue(type(rect) is Rectangle)
+                self.assertEqual(rect.__str__(), list_rectangles[i].__str__())
+            os.remove('Rectangle.csv')
+
+    def test_19_2(self):
+        self.set_zero()
+        s1 = Square(1, 2, 3)
+        s2 = Square(2, 4)
+        list_squares = [s1, s2]
+        Square.save_to_file_csv(list_squares)
+        if os.path.exists('Square.csv'):
+            list_squares_output = Square.load_from_file_csv()
+            for i, sq in enumerate(list_squares_output):
+                self.assertTrue(type(sq) is Square)
+                self.assertEqual(sq.__str__(), list_squares[i].__str__())
+            os.remove('Square.csv')
+
 
 if __name__ == '__main__':
     unittest.main()
