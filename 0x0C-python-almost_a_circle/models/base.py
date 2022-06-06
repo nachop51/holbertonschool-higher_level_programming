@@ -59,7 +59,8 @@ class Base:
         filename = cls.__name__ + ".json"
         if exists(filename):
             with open(filename, "r") as f:
-                return [cls.create(**obj) for obj in cls.from_json_string(f.read())]
+                return [cls.create(**obj) for obj
+                        in cls.from_json_string(f.read())]
         else:
             return []
 
