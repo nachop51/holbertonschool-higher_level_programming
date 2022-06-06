@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """ Unit Tests for base module """
-from re import S
 import unittest
 from models.base import Base
 from models.rectangle import Rectangle
@@ -18,10 +17,12 @@ class BaseTest(unittest.TestCase):
         Base._Base__nb_objects = 0
 
     def test_1_0(self):
+        ''' Test type for Base class '''
         b = Base(1)
         self.assertTrue(type(b) is Base)
 
     def test_1_1(self):
+        ''' Test ID '''
         self.set_zero()
         b = Base()
         b2 = Base()
@@ -34,6 +35,7 @@ class BaseTest(unittest.TestCase):
         self.assertEqual(Base._Base__nb_objects, 3)
 
     def test_1_2(self):
+        ''' Some more ids '''
         self.set_zero()
         b = Base(-1)
         b2 = Base(0)
@@ -43,6 +45,7 @@ class BaseTest(unittest.TestCase):
         self.assertEqual(b3.id, 1)
 
     def test_15_1(self):
+        ''' Test to_json_string method '''
         self.set_zero()
         r = Rectangle(10, 7, 2, 8)
         r_dict = r.to_dictionary()
@@ -55,6 +58,7 @@ class BaseTest(unittest.TestCase):
         )
 
     def test_15_2(self):
+        ''' More to_json_string tests '''
         json_dictionary = Base.to_json_string([])
         self.assertTrue(type(json_dictionary) is str)
         self.assertEqual(json_dictionary, "[]")
@@ -71,6 +75,7 @@ class BaseTest(unittest.TestCase):
 "height": 6, "x": 7, "y": 8}]')
 
     def test_16_1(self):
+        ''' Testing save_to_file method '''
         self.set_zero()
         r1 = Rectangle(1, 2, 3, 4)
         r2 = Rectangle(5, 6)
@@ -87,6 +92,7 @@ class BaseTest(unittest.TestCase):
             os.remove('Rectangle.json')
 
     def test_16_2(self):
+        ''' More tests for save_to_file method '''
         Rectangle.save_to_file([])
         if os.path.exists('Rectangle.json'):
             string = StringIO()
@@ -98,6 +104,7 @@ class BaseTest(unittest.TestCase):
             os.remove('Rectangle.json')
 
     def test_16_3(self):
+        ''' More tests for save_to_file method '''
         self.set_zero()
         r1 = Square(1, 2, 3, 4)
         r2 = Square(5, 6)
@@ -114,6 +121,7 @@ class BaseTest(unittest.TestCase):
             os.remove('Square.json')
 
     def test_16_4(self):
+        ''' More tests for save_to_file method '''
         Square.save_to_file([])
         if os.path.exists('Square.json'):
             string = StringIO()
@@ -125,6 +133,7 @@ class BaseTest(unittest.TestCase):
             os.remove('Square.json')
 
     def test_17_1(self):
+        ''' Tests for from_json_string method '''
         list_input = [
             {'id': 89, 'width': 10, 'height': 4},
             {'id': 7, 'width': 1, 'height': 7}
@@ -137,17 +146,20 @@ class BaseTest(unittest.TestCase):
 "height": 4}, {"id": 7, "width": 1, "height": 7}]')
 
     def test_17_2(self):
+        ''' More tests for from_json_string method '''
         list_input = None
         output = Base.from_json_string(list_input)
         self.assertEqual(output, [])
 
     def test_17_3(self):
+        ''' More tests for from_json_string method '''
         list_input = []
         json_dictionary = Base.to_json_string(list_input)
         list_output = Base.from_json_string(json_dictionary)
         self.assertEqual(list_output, [])
 
     def test_18_1(self):
+        ''' Dictionary to instance test '''
         self.set_zero()
         r1 = Rectangle(1, 2, 3)
         r1_dict = r1.to_dictionary()
@@ -155,6 +167,7 @@ class BaseTest(unittest.TestCase):
         self.assertEqual(r1.__str__(), '[Rectangle] (1) 3/0 - 1/2')
 
     def test_18_2(self):
+        ''' Dictionary to instance test '''
         self.set_zero()
         s1 = Square(1, 2, 3)
         s1_dict = s1.to_dictionary()
@@ -162,6 +175,7 @@ class BaseTest(unittest.TestCase):
         self.assertEqual(s1.__str__(), '[Square] (1) 2/3 - 1')
 
     def test_19_1(self):
+        ''' Tests for load_from_file method '''
         self.set_zero()
         r1 = Rectangle(1, 2, 3, 4)
         r2 = Rectangle(5, 6)
@@ -175,6 +189,7 @@ class BaseTest(unittest.TestCase):
             os.remove('Rectangle.json')
 
     def test_19_2(self):
+        ''' More tests for load_from_file method '''
         self.set_zero()
         s1 = Square(1, 2, 3, 4)
         s2 = Square(5, 6)
@@ -188,14 +203,17 @@ class BaseTest(unittest.TestCase):
             os.remove('Square.json')
 
     def test_19_3(self):
+        ''' More tests for load_from_file method '''
         list_output = Rectangle.load_from_file()
         self.assertEqual(list_output, [])
 
     def test_19_4(self):
+        ''' More tests for load_from_file method '''
         list_output = Square.load_from_file()
         self.assertEqual(list_output, [])
 
     def test_20_1(self):
+        ''' Tests for save_to_file_csv method '''
         self.set_zero()
         r1 = Rectangle(1, 2, 3)
         r2 = Rectangle(2, 4)
@@ -208,7 +226,8 @@ class BaseTest(unittest.TestCase):
                 self.assertEqual(rect.__str__(), list_rectangles[i].__str__())
             os.remove('Rectangle.csv')
 
-    def test_21_2(self):
+    def test_20_2(self):
+        ''' More tests for save_to_file_csv method '''
         self.set_zero()
         s1 = Square(1, 2, 3)
         s2 = Square(2, 4)
