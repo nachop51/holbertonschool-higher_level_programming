@@ -163,6 +163,40 @@ class BaseTest(unittest.TestCase):
 
     def test_19_1(self):
         self.set_zero()
+        r1 = Rectangle(1, 2, 3, 4)
+        r2 = Rectangle(5, 6)
+        list_input = [r1, r2]
+        Rectangle.save_to_file(list_input)
+        if os.path.exists('Rectangle.json'):
+            list_output = Rectangle.load_from_file()
+            for i, rect in enumerate(list_output):
+                self.assertTrue(type(rect) is Rectangle)
+                self.assertEqual(rect.__str__(), list_input[i].__str__())
+            os.remove('Rectangle.json')
+
+    def test_19_2(self):
+        self.set_zero()
+        s1 = Square(1, 2, 3, 4)
+        s2 = Square(5, 6)
+        list_input = [s1, s2]
+        Square.save_to_file(list_input)
+        if os.path.exists('Square.json'):
+            list_output = Square.load_from_file()
+            for i, sq in enumerate(list_output):
+                self.assertTrue(type(sq) is Square)
+                self.assertEqual(sq.__str__(), list_input[i].__str__())
+            os.remove('Square.json')
+
+    def test_19_3(self):
+        list_output = Rectangle.load_from_file()
+        self.assertEqual(list_output, [])
+
+    def test_19_4(self):
+        list_output = Square.load_from_file()
+        self.assertEqual(list_output, [])
+
+    def test_20_1(self):
+        self.set_zero()
         r1 = Rectangle(1, 2, 3)
         r2 = Rectangle(2, 4)
         list_rectangles = [r1, r2]
@@ -174,7 +208,7 @@ class BaseTest(unittest.TestCase):
                 self.assertEqual(rect.__str__(), list_rectangles[i].__str__())
             os.remove('Rectangle.csv')
 
-    def test_19_2(self):
+    def test_21_2(self):
         self.set_zero()
         s1 = Square(1, 2, 3)
         s2 = Square(2, 4)
