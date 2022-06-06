@@ -11,6 +11,7 @@ class Square(Rectangle):
         super().__init__(size, size, x, y, id)
 
     def __str__(self):
+        """ Returns a string representation of the square """
         return f"[Square] ({self.id}) {self.x}/{self.y} - {self.width}"
 
     @property

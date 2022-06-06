@@ -18,6 +18,7 @@ class BaseTest(unittest.TestCase):
         self.assertTrue(type(b) is Base)
 
     def test_1_1(self):
+        self.set_zero()
         b = Base()
         b2 = Base()
         b3 = Base(12)
@@ -38,11 +39,23 @@ class BaseTest(unittest.TestCase):
         self.assertEqual(b3.id, 1)
 
     def test_15_1(self):
+        self.set_zero()
         r = Rectangle(10, 7, 2, 8)
         r_dict = r.to_dictionary()
         json_dictionary = Base.to_json_string([r_dict])
         self.assertTrue(type(r_dict) is dict)
         self.assertTrue(type(json_dictionary) is str)
+        self.assertEqual(
+            json_dictionary, '[{"id": 1, "width": 10, "height": 7, "x": 2, "y": 8}]'
+        )
+
+    def test_15_2(self):
+        json_dictionary = Base.to_json_string([])
+        self.assertTrue(type(json_dictionary) is str)
+        self.assertEqual(json_dictionary, "[]")
+
+    def test_15_3(self):
+        pass
 
 
 if __name__ == '__main__':
