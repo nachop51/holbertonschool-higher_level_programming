@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """ Unit Tests for rectangle module """
+import os
 import unittest
 from models.base import Base
 from models.rectangle import Rectangle
@@ -79,6 +80,11 @@ class RectangleTest(unittest.TestCase):
         self.assertEqual(r3.x, 3)
         self.assertEqual(r3.y, 4)
         self.assertEqual(r3.id, 1)
+
+    def test_3_0(self):
+        with self.assertRaises(ValueError) as e:
+            r = Rectangle(1, 0)
+        self.assertEqual("height must be > 0", str(e.exception))
 
     def test_3_1(self):
         ''' Testing exceptions '''
@@ -441,6 +447,47 @@ but 2 were given", str(e.exception))
         self.assertFalse(r1 == r2)
         self.assertFalse(r1 is r2)
         self.assertTrue(r1.to_dictionary() == r2.to_dictionary())
+
+    def test_16_1(self):
+        ''' Testing save_to_file method '''
+        self.set_zero()
+        r1 = Rectangle(1, 2, 3, 4)
+        r2 = Rectangle(5, 6)
+        Rectangle.save_to_file([r1, r2])
+        if os.path.exists('Rectangle.json'):
+            string = StringIO()
+            sys.stdout = string
+            with open('Rectangle.json', 'r') as f:
+                print(f.read())
+            output = string.getvalue()
+            self.assertEqual(output, '[{"id": 1, "width": 1, \
+"height": 2, "x": 3, "y": 4}, {"id": 2, "width": 5, \
+"height": 6, "x": 0, "y": 0}]\n')
+            os.remove('Rectangle.json')
+
+    def test_16_2(self):
+        ''' More tests for save_to_file method '''
+        Rectangle.save_to_file([])
+        if os.path.exists('Rectangle.json'):
+            string = StringIO()
+            sys.stdout = string
+            with open('Rectangle.json', 'r') as f:
+                print(f.read())
+            output = string.getvalue()
+            self.assertEqual(output, "[]\n")
+            os.remove('Rectangle.json')
+
+    def test_16_5(self):
+        ''' More tests for save_to_file method '''
+        Rectangle.save_to_file(None)
+        if os.path.exists('Rectangle.json'):
+            string = StringIO()
+            sys.stdout = string
+            with open('Rectangle.json', 'r') as f:
+                print(f.read())
+            output = string.getvalue()
+            self.assertEqual(output, "[]\n")
+            os.remove('Rectangle.json')
 
 
 if __name__ == '__main__':

@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """ Unit Tests for square module """
+import os
 import unittest
 from models.base import Base
 from models.rectangle import Rectangle
@@ -286,6 +287,47 @@ class RectangleTest(unittest.TestCase):
         s1 = Square(5, 2)
         self.assertEqual(s1.to_dictionary(), {'x': 2, 'y': 0, 'id': 1,
                                               'size': 5})
+
+    def test_16_3(self):
+        ''' More tests for save_to_file method '''
+        self.set_zero()
+        r1 = Square(1, 2, 3, 4)
+        r2 = Square(5, 6)
+        Square.save_to_file([r1, r2])
+        if os.path.exists('Square.json'):
+            string = StringIO()
+            sys.stdout = string
+            with open('Square.json', 'r') as f:
+                print(f.read())
+            output = string.getvalue()
+            self.assertEqual(output, '[{"id": 4, "size": 1, \
+"x": 2, "y": 3}, {"id": 1, "size": 5, \
+"x": 6, "y": 0}]\n')
+            os.remove('Square.json')
+
+    def test_16_4(self):
+        ''' More tests for save_to_file method '''
+        Square.save_to_file([])
+        if os.path.exists('Square.json'):
+            string = StringIO()
+            sys.stdout = string
+            with open('Square.json', 'r') as f:
+                print(f.read())
+            output = string.getvalue()
+            self.assertEqual(output, "[]\n")
+            os.remove('Square.json')
+
+    def test_16_6(self):
+        """ More tests for save_to_file method """
+        Square.save_to_file(None)
+        if os.path.exists('Square.json'):
+            string = StringIO()
+            sys.stdout = string
+            with open('Square.json', 'r') as f:
+                print(f.read())
+            output = string.getvalue()
+            self.assertEqual(output, "[]\n")
+            os.remove('Square.json')
 
 
 if __name__ == '__main__':

@@ -74,64 +74,6 @@ class BaseTest(unittest.TestCase):
 "height": 2, "x": 3, "y": 4}, {"id": 2, "width": 5, \
 "height": 6, "x": 7, "y": 8}]')
 
-    def test_16_1(self):
-        ''' Testing save_to_file method '''
-        self.set_zero()
-        r1 = Rectangle(1, 2, 3, 4)
-        r2 = Rectangle(5, 6)
-        Rectangle.save_to_file([r1, r2])
-        if os.path.exists('Rectangle.json'):
-            string = StringIO()
-            sys.stdout = string
-            with open('Rectangle.json', 'r') as f:
-                print(f.read())
-            output = string.getvalue()
-            self.assertEqual(output, '[{"id": 1, "width": 1, \
-"height": 2, "x": 3, "y": 4}, {"id": 2, "width": 5, \
-"height": 6, "x": 0, "y": 0}]\n')
-            os.remove('Rectangle.json')
-
-    def test_16_2(self):
-        ''' More tests for save_to_file method '''
-        Rectangle.save_to_file([])
-        if os.path.exists('Rectangle.json'):
-            string = StringIO()
-            sys.stdout = string
-            with open('Rectangle.json', 'r') as f:
-                print(f.read())
-            output = string.getvalue()
-            self.assertEqual(output, "[]\n")
-            os.remove('Rectangle.json')
-
-    def test_16_3(self):
-        ''' More tests for save_to_file method '''
-        self.set_zero()
-        r1 = Square(1, 2, 3, 4)
-        r2 = Square(5, 6)
-        Square.save_to_file([r1, r2])
-        if os.path.exists('Square.json'):
-            string = StringIO()
-            sys.stdout = string
-            with open('Square.json', 'r') as f:
-                print(f.read())
-            output = string.getvalue()
-            self.assertEqual(output, '[{"id": 4, "size": 1, \
-"x": 2, "y": 3}, {"id": 1, "size": 5, \
-"x": 6, "y": 0}]\n')
-            os.remove('Square.json')
-
-    def test_16_4(self):
-        ''' More tests for save_to_file method '''
-        Square.save_to_file([])
-        if os.path.exists('Square.json'):
-            string = StringIO()
-            sys.stdout = string
-            with open('Square.json', 'r') as f:
-                print(f.read())
-            output = string.getvalue()
-            self.assertEqual(output, "[]\n")
-            os.remove('Square.json')
-
     def test_17_1(self):
         ''' Tests for from_json_string method '''
         list_input = [
