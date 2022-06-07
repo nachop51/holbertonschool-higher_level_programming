@@ -128,6 +128,7 @@ class BaseTest(unittest.TestCase):
             for i, rect in enumerate(list_output):
                 self.assertTrue(type(rect) is Rectangle)
                 self.assertEqual(rect.__str__(), list_input[i].__str__())
+            os.remove('Rectangle.json')
 
     def test_19_2(self):
         ''' More tests for load_from_file method '''
@@ -141,6 +142,7 @@ class BaseTest(unittest.TestCase):
             for i, sq in enumerate(list_output):
                 self.assertTrue(type(sq) is Square)
                 self.assertEqual(sq.__str__(), list_input[i].__str__())
+            os.remove('Square.json')
 
     def test_19_3(self):
         ''' More tests for load_from_file method '''
@@ -164,6 +166,7 @@ class BaseTest(unittest.TestCase):
             for i, rect in enumerate(list_rectangles_output):
                 self.assertTrue(type(rect) is Rectangle)
                 self.assertEqual(rect.__str__(), list_rectangles[i].__str__())
+            os.remove('Rectangle.csv')
 
     def test_20_2(self):
         ''' More tests for save_to_file_csv method '''
@@ -177,6 +180,7 @@ class BaseTest(unittest.TestCase):
             for i, sq in enumerate(list_squares_output):
                 self.assertTrue(type(sq) is Square)
                 self.assertEqual(sq.__str__(), list_squares[i].__str__())
+            os.remove('Square.csv')
 
 
 if __name__ == '__main__':
