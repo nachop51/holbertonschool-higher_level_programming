@@ -326,6 +326,19 @@ class RectangleTest(unittest.TestCase):
             output = string.getvalue()
             self.assertEqual(output, "[]\n")
 
+    def test_16_7(self):
+        """ More tests for save_to_file method """
+        self.set_zero()
+        Square.save_to_file([Square(1)])
+        if os.path.exists('Square.json'):
+            string = StringIO()
+            sys.stdout = string
+            with open('Square.json', 'r') as f:
+                print(f.read())
+            output = string.getvalue()
+            self.assertEqual(output, '[{"id": 1, "size": 1, \
+"x": 0, "y": 0}]\n')
+
 
 if __name__ == '__main__':
     unittest.main()

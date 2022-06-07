@@ -486,6 +486,19 @@ but 2 were given", str(e.exception))
             output = string.getvalue()
             self.assertEqual(output, "[]\n")
 
+    def test_16_7(self):
+        """ More tests for save_to_file method """
+        self.set_zero()
+        Rectangle.save_to_file([Rectangle(1, 1)])
+        if os.path.exists('Rectangle.json'):
+            string = StringIO()
+            sys.stdout = string
+            with open('Rectangle.json', 'r') as f:
+                print(f.read())
+            output = string.getvalue()
+            self.assertEqual(output, '[{"id": 1, "width": 1, \
+"height": 1, "x": 0, "y": 0}]\n')
+
 
 if __name__ == '__main__':
     unittest.main()
