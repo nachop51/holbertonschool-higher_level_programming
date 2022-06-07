@@ -303,7 +303,6 @@ class RectangleTest(unittest.TestCase):
             self.assertEqual(output, '[{"id": 4, "size": 1, \
 "x": 2, "y": 3}, {"id": 1, "size": 5, \
 "x": 6, "y": 0}]\n')
-            os.remove('Square.json')
 
     def test_16_4(self):
         ''' More tests for save_to_file method '''
@@ -315,7 +314,6 @@ class RectangleTest(unittest.TestCase):
                 print(f.read())
             output = string.getvalue()
             self.assertEqual(output, "[]\n")
-            os.remove('Square.json')
 
     def test_16_6(self):
         """ More tests for save_to_file method """
@@ -327,7 +325,6 @@ class RectangleTest(unittest.TestCase):
                 print(f.read())
             output = string.getvalue()
             self.assertEqual(output, "[]\n")
-            os.remove('Square.json')
 
 
 if __name__ == '__main__':

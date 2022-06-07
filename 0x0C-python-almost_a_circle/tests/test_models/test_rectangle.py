@@ -463,7 +463,6 @@ but 2 were given", str(e.exception))
             self.assertEqual(output, '[{"id": 1, "width": 1, \
 "height": 2, "x": 3, "y": 4}, {"id": 2, "width": 5, \
 "height": 6, "x": 0, "y": 0}]\n')
-            os.remove('Rectangle.json')
 
     def test_16_2(self):
         ''' More tests for save_to_file method '''
@@ -475,7 +474,6 @@ but 2 were given", str(e.exception))
                 print(f.read())
             output = string.getvalue()
             self.assertEqual(output, "[]\n")
-            os.remove('Rectangle.json')
 
     def test_16_5(self):
         ''' More tests for save_to_file method '''
@@ -487,7 +485,6 @@ but 2 were given", str(e.exception))
                 print(f.read())
             output = string.getvalue()
             self.assertEqual(output, "[]\n")
-            os.remove('Rectangle.json')
 
 
 if __name__ == '__main__':
