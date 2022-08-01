@@ -1,7 +1,7 @@
 #!/usr/bin/node
-const process = require("process");
+const process = require('process');
 const arg = process.argv[2];
-function factorial(arg) {
+function factorial (arg) {
   if (isNaN(arg) || arg === 0) {
     return 1;
   }
