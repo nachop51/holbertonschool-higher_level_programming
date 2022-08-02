@@ -1,11 +1,12 @@
 #!/usr/bin/node
-class Square extends require("./4-rectangle") {
-  constructor(size) {
+class Square extends require('./4-rectangle') {
+  constructor (size) {
     super(size, size);
   }
-  charPrint(c) {
+
+  charPrint (c) {
     if (c === undefined) {
-      c = "X";
+      c = 'X';
     }
     for (let i = 0; i < this.height; i++) {
       console.log(c.repeat(this.width));
