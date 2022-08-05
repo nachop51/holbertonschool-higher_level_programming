@@ -15,7 +15,8 @@ db = MySQLdb.connect(
     host="localhost",
     user=mysql_username,
     passwd=mysql_password,
-    db=mysql_db
+    db=mysql_db,
+    port=3306
 )
 
 c = db.cursor()

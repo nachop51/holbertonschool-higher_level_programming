@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+"""
+    This module select all the states from a given db
+    Where the name starts with whatever u typed in the command line
+"""
 import sys
 import MySQLdb
 
@@ -12,7 +16,8 @@ db = MySQLdb.connect(
     host="localhost",
     user=mysql_username,
     passwd=mysql_password,
-    db=mysql_db
+    db=mysql_db,
+    port=3306
 )
 
 c = db.cursor()
