@@ -23,10 +23,9 @@ if __name__ == "__main__":
     sql = "SELECT cities.name FROM cities JOIN states ON cities.state_id = states.id WHERE states.name = %s ORDER BY cities.id ASC"
     params = (mysql_state,)
     c.execute(sql, params)
-    
+
     rows = c.fetchall()
     for row in rows:
         print(row[0], end=", " if row != rows[-1] else "\n")
-    
+
     db.close()
-    

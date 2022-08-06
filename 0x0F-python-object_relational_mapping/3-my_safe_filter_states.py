@@ -14,7 +14,6 @@ if __name__ == "__main__":
     mysql_db = sys.argv[3]
     mysql_state = sys.argv[4]
 
-
     db = MySQLdb.connect(
         host="localhost",
         user=mysql_username,
