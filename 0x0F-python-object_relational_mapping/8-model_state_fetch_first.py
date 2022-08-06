@@ -20,10 +20,9 @@ if __name__ == '__main__':
 
     with Session(engine) as session:
         query = select(State).where(State.id == 1).order_by(State.id)
-        result = session.execute(query).all()
-
-    try:
-        row = result[0][0]
-        print(f"{row.id}: {row.name}")
-    except Exception:
-        print("Nothing")
+        result = session.execute(query)
+        if result:
+            row = result.fetchone()[0]
+            print(f"{row.id}: {row.name}")
+        else:
+            print("Nothing")
