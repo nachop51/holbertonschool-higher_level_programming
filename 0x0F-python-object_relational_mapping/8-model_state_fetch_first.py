@@ -25,5 +25,5 @@ if __name__ == '__main__':
     try:
         row = result[0][0]
         print(f"{row.id}: {row.name}")
-    except:
+    except Exception:
         print("Nothing")
