@@ -20,9 +20,8 @@ if __name__ == '__main__':
 
     with Session(engine) as session:
         query = select(State).order_by(State.id)
-        result = session.execute(query)
-        if result.first():
-            row = result.fetchone()[0]
-            print(f"{row.id}: {row.name}")
+        result = session.execute(query).first()
+        if result is not None:
+            print(f"{result[0].id}: {result[0].name}")
         else:
             print("Nothing")
