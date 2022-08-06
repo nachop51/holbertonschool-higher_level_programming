@@ -28,7 +28,11 @@ if __name__ == "__main__":
     c.execute(sql, params)
 
     rows = c.fetchall()
+    s = ""
     for row in rows:
-        print(row[0], end=", " if row != rows[-1] else "\n")
+        if (row != rows[0]):
+            s += ", "
+        s += row[0]
+    print(s)
 
     db.close()
