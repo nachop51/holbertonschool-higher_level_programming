@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-    This module lists all state objects
+    This module lists one state object
     from the databse hbtn_0e_6_usa
 """
 if __name__ == '__main__':
@@ -21,7 +21,7 @@ if __name__ == '__main__':
     with Session(engine) as session:
         query = select(State).order_by(State.id)
         result = session.execute(query)
-        if result:
+        if result.first():
             row = result.fetchone()[0]
             print(f"{row.id}: {row.name}")
         else:
