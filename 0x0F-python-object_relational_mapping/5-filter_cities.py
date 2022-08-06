@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-    
+    Filter cities by state
 """
 if __name__ == "__main__":
     import MySQLdb
