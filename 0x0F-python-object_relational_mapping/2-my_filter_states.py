@@ -22,7 +22,9 @@ if __name__ == '__main__':
 
     c = db.cursor()
     c.execute(
-        f"SELECT * FROM states WHERE name LIKE '{mysql_state}' ORDER BY id ASC"
+        f"""SELECT * FROM states
+        WHERE name LIKE '{mysql_state}'
+        ORDER BY states.id ASC"""
     )
     rows = c.fetchall()
     for row in rows:

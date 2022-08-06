@@ -20,7 +20,10 @@ if __name__ == "__main__":
     )
 
     c = db.cursor()
-    sql = "SELECT cities.name FROM cities JOIN states ON cities.state_id = states.id WHERE states.name = %s ORDER BY cities.id ASC"
+    sql = """SELECT cities.name FROM cities
+    JOIN states ON cities.state_id = states.id
+    WHERE states.name = %s
+    ORDER BY cities.id ASC"""
     params = (mysql_state,)
     c.execute(sql, params)
 
