@@ -1,6 +1,8 @@
 #!/usr/bin/python3
+#!/usr/bin/python3
 """
-    This module changes the name of a State object
+    This module deletes all objects that
+    contains the letter a from a database
 """
 if __name__ == '__main__':
     import sys
@@ -17,8 +19,8 @@ if __name__ == '__main__':
     Base.metadata.create_all(engine)
 
     with Session(engine) as session:
-        query = select(State).filter(State.id == 2)
-        result = session.execute(query).first()
-        if result is not None:
-            result[0].name = 'New Mexico'
-            session.commit()
+        query = select(State).filter(State.name.ilike('%a%'))
+        result = session.execute(query).all()
+        for row in result:
+            session.delete(row[0])
+        session.commit()

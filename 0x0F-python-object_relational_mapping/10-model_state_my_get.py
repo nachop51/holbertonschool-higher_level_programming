@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 """
-    This module lists all state objects
-    that contains the letter a
-    from the databse hbtn_0e_6_usa
+    This module prints the State
+    object with the name passed as argument
 """
 if __name__ == '__main__':
     import sys
