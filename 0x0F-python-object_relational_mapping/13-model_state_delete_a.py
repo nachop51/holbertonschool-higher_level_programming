@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-#!/usr/bin/python3
 """
     This module deletes all objects that
     contains the letter a from a database
