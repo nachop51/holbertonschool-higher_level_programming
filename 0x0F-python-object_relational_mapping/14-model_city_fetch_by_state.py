@@ -27,4 +27,4 @@ if __name__ == '__main__':
             # with the first element being the city
             # and the second element being the state
             # print(row)
-            print(f"{row[1].name}: {row[0].id} {row[0].name}]")
+            print(f"{row[1].name}: ({row[0].id}) {row[0].name}")
