@@ -19,8 +19,8 @@ if __name__ == '__main__':
     Base.metadata.create_all(engine)
 
     with Session(engine) as session:
-        query = select(State).filter(State.id == 11)
+        query = select(State).filter(State.id == 2)
         result = session.execute(query).first()
-        if result[0] is not None:
+        if result is not None:
             result[0].name = 'New Mexico'
             session.commit()
