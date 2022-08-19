@@ -7,14 +7,16 @@ if __name__ == "__main__":
     import requests
     import sys
 
-    if sys.argv[1]:
+    if sys.argv[1] is not None:
         letter = {"q": sys.argv[1]}
     else:
         letter = {"q": ""}
     response = requests.post('http://0.0.0.0:5000/search_user', letter)
     try:
-        response = response.json()
-        print("[{}] {}".format(response.get('id'), response.get('name'))
-         if response.get('id') else "Not found")
+        result = response.json()
+        if result == {}:
+            print("No result")
+        else:
+            print("[{}] {}".format(result.get("id"), result.get("name")))
     except Exception:
         print("Not a valid JSON")
