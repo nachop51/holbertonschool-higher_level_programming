@@ -5,12 +5,9 @@ parameter, and finally displays the body of the response """
 
 
 if __name__ == "__main__":
-    import urllib.request
+    import requests
     import sys
-    import urllib.parse
+
     email = {'email': sys.argv[2]}
-    data = bytes(urllib.parse.urlencode(email), encoding='utf-8')
-    req = urllib.request.Request(sys.argv[1], data)
-    with urllib.request.urlopen(req) as response:
-        html = response.read()
-        print(html.decode('utf-8'))
+    response = requests.post(sys.argv[1], email)
+    print(response.text)
