@@ -11,7 +11,7 @@ if __name__ == "__main__":
         letter = {"q": sys.argv[1]}
     else:
         letter = {"q": ""}
-    response = requests.post('http://0.0.0.0:5000/search_user', letter)
+    response = requests.post('http://0.0.0.0:5000/search_user', data=letter)
     try:
         result = response.json()
         if result == {}:
