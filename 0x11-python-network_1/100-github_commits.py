@@ -17,7 +17,7 @@ if __name__ == '__main__':
     response = requests.get(url)
     if response.status_code < 400:
         result = response.json()
-        for i in range(10):
-            sha = result[i].get('sha')
-            author = result[i].get("commit").get("author").get("name")
+        for res in result[:10]:
+            sha = res.get('sha')
+            author = res.get("commit").get("author").get("name")
             print("{}: {}".format(sha, author))
