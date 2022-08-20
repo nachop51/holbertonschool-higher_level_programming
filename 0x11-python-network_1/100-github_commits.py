@@ -15,8 +15,9 @@ if __name__ == '__main__':
     owner = sys.argv[2]
     url = "https://api.github.com/repos/{}/{}/commits".format(owner, repo)
     response = requests.get(url)
-    result = response.json()
-    for i in range(10):
-        sha = result[i].get('sha')
-        author = result[i].get("commit").get("author").get("name")
-        print("{}: {}".format(sha, author))
+    if response.status_code < 400:
+        result = response.json()
+        for i in range(10):
+            sha = result[i].get('sha')
+            author = result[i].get("commit").get("author").get("name")
+            print("{}: {}".format(sha, author))
