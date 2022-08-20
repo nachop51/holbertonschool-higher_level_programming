@@ -7,7 +7,7 @@ if __name__ == "__main__":
     import requests
     import sys
 
-    if sys.argv[1] is not None:
+    if len(sys.argv) > 1:
         letter = {"q": sys.argv[1]}
     else:
         letter = {"q": ""}
