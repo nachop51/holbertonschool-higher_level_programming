@@ -8,7 +8,7 @@ axios
     const tasks = response.data;
     const completed = {};
     for (const task in tasks) {
-      if (isNaN(completed[tasks[task].userId])) {
+      if (isNaN(completed[tasks[task].userId]) && tasks[task].completed) {
         completed[tasks[task].userId] = 0;
       }
       if (tasks[task].completed) {
